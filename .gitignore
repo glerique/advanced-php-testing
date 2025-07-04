@@ -1,0 +1,9 @@
+vendor/
+.idea/
+.env.local
+.env.*.local
+node_modules/
+coverage/
+*.log
+.DS_Store
+docker/mysql/
