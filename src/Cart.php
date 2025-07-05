@@ -5,10 +5,15 @@ namespace App;
 class Cart
 {
     public float $price;
-    public static float $tax = 1.2;
+    private float $tax = 1.2;
 
     public function getNetPrice(): float
     {
-        return $this->price * self::$tax;
+        return $this->price * $this->tax;
+    }
+
+    public function setTax(float $tax): void
+    {
+        $this->tax = $tax;
     }
 }
