@@ -2,13 +2,20 @@
 
 namespace App;
 
+use App\Service\TaxCalculatorInterface;
+
 class Cart
 {
     public float $price;
-    public static float $tax = 1.2;
+    private TaxCalculatorInterface $taxCalculator;
+
+    public function __construct(TaxCalculatorInterface $taxCalculator)
+    {
+        $this->taxCalculator = $taxCalculator;
+    }
 
     public function getNetPrice(): float
     {
-        return $this->price * self::$tax;
+        return $this->taxCalculator->calculate($this->price);
     }
 }
